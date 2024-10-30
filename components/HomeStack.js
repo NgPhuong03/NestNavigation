@@ -5,6 +5,8 @@ import HomeDetailsScreen from '../screens/HomeStack/HomeDetailsScreen';
 import NotificationDetails from '../screens/HomeStack/NotificationDetails';
 import Helps from '../screens/HomeStack/Helps';
 import BottomNavigation from './BottomNavigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -13,9 +15,24 @@ const Stack = createStackNavigator();
 const HomeDrawer = () => {
     return (
         <Drawer.Navigator >
-            <Drawer.Screen name='Home' component={BottomNavigation}/>
-            <Drawer.Screen name='Notifications' component={Notifications} />
-            <Drawer.Screen name='Helps' component={Helps}/>
+            <Drawer.Screen name='Home' component={BottomNavigation} 
+            options={{
+                drawerIcon: ({ color }) => (
+                    <Icon name="home" size={24} color={color} />
+                ),
+            }}/>
+            <Drawer.Screen name='Notifications' component={Notifications} 
+            options={{
+                drawerIcon: ({ color }) => (
+                    <Icon name="bell" size={24} color={color} />
+                ),
+            }}/>
+            <Drawer.Screen name='Helps' component={Helps} 
+            options={{
+                drawerIcon: ({ color }) => (
+                    <Icon name="question" size={24} color={color} />
+                ),
+            }}/>
         </Drawer.Navigator>
     )
 }
